@@ -4,7 +4,7 @@ int main() {
 	//
 	showAllFields();
 	//long int size = 7000000;
-	long int size = 10000;
+	long int size = 100;
 
 	showTask();
 

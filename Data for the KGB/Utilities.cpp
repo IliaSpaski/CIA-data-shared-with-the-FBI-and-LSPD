@@ -331,16 +331,15 @@ int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy
 	}
 
 
-	int searchName(Student* arr, int size, string name) {
+	int searchName(Student* arr, int size, string surname) {
 
 		int index = 0;
-		for (int i = 1; i < size; i++)
-		{
-			if (arr[i].name == name) {
-				index = i;
-				return index;
+			for (int i = 1; i < size; i++) {
+				if (arr[i].surname == surname) {
+					index = i;
+					return index;
+				}
 			}
-		}
 	}
 
 	int searchSurname(Student* arr, int size, string name, string surname) {
@@ -375,11 +374,11 @@ int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy
 		string NameWrite;
 		string SurnameWrite;
 		string PatronymicWrite;
-		cout << char(219) << char(221) << "	 			" << "Search by - " << "[ Name ]| or |[ Name ] and [ Surname ]| or |[ Name ] and [ Surname ] and [ Patronymic ]|. ..." << endl;
-		cout << char(219) << char(221) << "	 			" << "Search by:  " << "[ Name ]| or |       [ Surname ]      | or |             [ Patronymic ]                |     " << endl;
+		cout << char(219) << char(221) << "	 			" << "Search by - " << "[ Surname ]| or |[ Name ] and [ Surname ]| or |[ Name ] and [ Surname ] and [ Patronymic ]|. ..." << endl;
+		cout << char(219) << char(221) << "	 			" << "Search by:  " << "[ Firstname ]| or |       [ Surname ]      | or |             [ Patronymic ]                |     " << endl;
 		cout << char(219) << char(221) << "	 			" << "Imput search name: ";
 		cin >> nameWrite;
-		if (nameWrite == "Name") {
+		if (nameWrite == "Firstname") {
 			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Name: ";
 			cin >> NameWrite;
 			cout << char(219) << char(221) << endl;
