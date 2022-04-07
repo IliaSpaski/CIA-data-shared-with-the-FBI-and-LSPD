@@ -1,16 +1,18 @@
-#include <iostream>
+﻿#include <iostream>
 #include <ctime>
 #include <stdlib.h>
 #include <windows.h>
 #include <stdio.h>
 #include <winsock.h>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
 struct Student {
 	string name;
 	string surname;
+	string alphabet;
 	int age = 0;
 	double money = 0;
 	//double mark = 0;
@@ -18,6 +20,9 @@ struct Student {
 	int series = 0;
 	int additionalseries = 0;
 	int namberAccount = 0;
+	double creditCard = 0; //Креди́тная ка́рта
+	double debitCard = 0; //Дебетовые карты
+	string bloodType; //Гру́ппа кро́ви
 
 };
 

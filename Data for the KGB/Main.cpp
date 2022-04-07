@@ -3,8 +3,8 @@
 int main() {
 	//
 	showAllFields();
-	//long int size = 10000000;
-	long int size = 1000;
+	//long int size = 7000000;
+	long int size = 10000;
 
 	showTask();
 
@@ -35,7 +35,7 @@ int main() {
 
 
 	else if (searchType == "Bank") {
-		cout << char(219) << char(221) << endl;ö
+		cout << char(219) << char(221) << endl;
 		bankImput(arr, size);
 		cout << char(219) << char(221) << endl;
 	}
