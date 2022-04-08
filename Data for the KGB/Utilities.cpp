@@ -1,26 +1,60 @@
 ﻿#include "Header.h"
 
 int password = randomOfPassword();
+int privacy = 0;
 
-void randonCardCredit(Student* arr, int i) {
-	cout << char(219) << char(221) << "	 			" << '|' << " Money for credit card: " << arr[i].creditCard << '$' << ';' << endl;
+int randonCardCredit(Student* arr, int i) {
+	if (privacy < 4){
+		cout << char(219) << char(221) << "		" << '|' << " Money for credit card: " << "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." << ';' << endl;
+		return 0;
+	}
+	cout << char(219) << char(221) << "		" << '|' << " Money for credit card: " << arr[i].creditCard << '$' << ';' << endl;
 }
-void randonCardDebit(Student* arr, int i) {
-	cout << char(219) << char(221) << "	 			" << '|' << " Money for debit card: " << arr[i].debitCard << '$' << ';' << endl;
+
+int randonCardDebit(Student* arr, int i) {
+	if (privacy < 4) {
+		cout << char(219) << char(221) << "		" << '|' << " Money for debit card: " << "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." << ';' << endl;
+		return 0;
+	}
+	cout << char(219) << char(221) << "		" << '|' << " Money for debit card: " << arr[i].debitCard << '$' << ';' << endl;
 }
+
 void randonBloodType(Student* arr, int i) {
-	cout << char(219) << char(221) << "	 			" << '|' << " Blood type: " << arr[i].bloodType << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << " Blood type: " << arr[i].bloodType << ';' << endl;
 }
+
+const string TELEP_CODE[]{
+	"956","903","863","979","205","682","812"
+};
+
+const int TELEP_CODE_COUNT = 7;
+
+void randonTelephone(Student* arr, int i	) {
+	cout << ' ' << '|' << arr[i].telephone;
+}
+
 void showAllStudents(Student* arr, int size) {
 	for (int i = 0; i < size; i++) {
 		/////////
 		int random = rand() % (3 - 1);
 		int randomOne = rand() % (3 - 1);
 		int randomToo = rand() % (3 - 1);
+		int randomThree = rand() % (3 - 1);
 		/////////
-		cout << char(219) << char(221) << "	 			" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
-		cout << char(219) << char(221) << "	 			" << '|' << " Age = " << arr[i].age << ';';
-		cout << " |Bank account " << char (252) << ' ' << arr[i].namberAccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
+		cout << char(219) << char(221) << "		" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
+		cout << char(219) << char(221) << "		" << '|' << " Age = " << arr[i].age << ';';
+		if (randomThree == 1) {
+			randonTelephone(arr, i);
+		}
+		cout << endl;
+		if (privacy < 4) {
+			cout << char(219) << char(221) << "		" << '|' << " Bank account " << char(252) << ' ' << arr[i].namberAccount << " - " << "In connection with the U.S.Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." << ' ' << ';';
+		}
+		if (privacy >= 4) {
+			cout << char(219) << char(221) << "		" << '|' << " Bank account " << char(252) << ' ' << arr[i].namberAccount << " - " << arr[i].money << '$' << ' ' << ';';
+		}
+
+		cout << endl;
 		/////////
 		if (random == 1) {
 			randonCardCredit(arr, i);
@@ -32,7 +66,7 @@ void showAllStudents(Student* arr, int size) {
 			randonBloodType(arr, i);
 		}
 		/////////
-		cout << char(219) << char(221) << "	 			" << '|' << "Insurance policy: " << arr[i].policy << ", series " << char(252) << ':' << ' ' << arr[i].series << " - " << arr[i].additionalseries << '|' << ' ' << endl;
+		cout << char(219) << char(221) << "		" << '|' << "Insurance policy: " << arr[i].policy << ", series " << char(252) << ':' << ' ' << arr[i].series << " - " << arr[i].additionalseries << ' ' << endl;
 		for (int i = 0; i < 98; i++) {
 			cout << char(219);
 		}
@@ -156,9 +190,12 @@ void initStudents(Student* arr, int size) {
 
 	const int MAX_NAM_ACCOUNT = 9999999999;
 	long long int MIN_NAM_ACCOUNT = 1000000000;
-
+	
 
 	for (int i = 0; i < size; i++) {
+		const int x = rand() % (999 - 100);
+	const int z = rand() % (99 - 10);
+	const int a = rand() % (99 - 10);
 		long long int nam2 = MIN_INSURANCE_POLICY++ + i + rand() % 2 + 1;
 		long long int nam1 = MIN_NAM_ACCOUNT++ + i + rand() % 2 + i;
 		arr[i].name = NAME[rand() % NAME_COUNT];
@@ -166,14 +203,17 @@ void initStudents(Student* arr, int size) {
 		arr[i].alphabet = ALPHABET[rand() % ALPHABET_COUNT];
 		arr[i].age = rand() % (MAX_AGE - MIN_AGE - 1) + MIN_AGE;
 		//arr[i].mark = rand() % (MAX_MARK - MIN_MARK - 1) + MIN_MARK;
-		arr[i].money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
 		arr[i].policy = nam1;
 		arr[i].series = rand() % (MAX_SERIES - MIN_SERIES - 1) + MIN_SERIES;
 		arr[i].additionalseries = rand() % (MAX_SERIES_ADDITIONAL - MIN_SERIES_ADDITIONAL - 1) + MIN_SERIES_ADDITIONAL;
 		arr[i].namberAccount = nam2;
 		arr[i].bloodType = BLOOD_TYPE[rand() % BLOOD_TYPE_COUNT];
-		arr[i].creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD - 1) / 0.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
-		arr[i].debitCard = rand() % (MAX_MONEY_DEBIT_CARD   - MIN_MONEY_DEBIT_CARD - 1) / 0.5  + (MAX_MONEY_DEBIT_CARD / 3.4);
+		arr[i].telephone = "+1(" + TELEP_CODE[rand() % TELEP_CODE_COUNT] + ')' + to_string(x) + '-' + to_string(z) + '-' + to_string(a);
+		if (privacy >= 4){
+			arr[i].money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
+			arr[i].creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
+			arr[i].debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
+		}
 
 	}
 	//////
@@ -183,7 +223,7 @@ void showAllFields() {
 
 	// static int password = randomOfPassword();
 	int passwordWrite = 0;
-	int privacy = 0;
+	
 
 	for (int i = 0; i < 98; i++) {
 		cout << char(219); 
@@ -225,10 +265,10 @@ void showAllFields() {
 	do {
 		cout << char(219) << char(221) << "	 			" << "Imput password: ";
 		cin >> passwordWrite;
-		cout << char(219) << char(221) << "	 			" << "Imput privacy level: ";
-		cin >> privacy;
-
 	} while (passwordWrite != password);
+
+	cout << char(219) << char(221) << "	 			" << "Imput privacy level: ";
+	cin >> privacy;
 
 	//////
 	for (int i = 0; i < 10; i++) {
@@ -257,10 +297,10 @@ void showTask() {
 
 
 int nameSearch(Student* arr, int i) {
-	cout << char(219) << char(221) << "	 			" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
-	cout << char(219) << char(221) << "	 			" << '|' << " Age = " << arr[i].age << ';';
+	cout << char(219) << char(221) << "		" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << " Age = " << arr[i].age << ';';
 	cout << " |Bank account " << char(252) << ' ' << arr[i].namberAccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
-	cout << char(219) << char(221) << "	 			" << '|' << "Insurance policy: " 
+	cout << char(219) << char(221) << "		" << '|' << "Insurance policy: " 
 		<< arr[i].policy << ", series " << char(252) << ':' << ' ' << arr[i].series << " - " << arr[i].additionalseries << '|' << ' ' << endl;
 	for (int i = 0; i < 98; i++) {
 		cout << char(219);
@@ -283,7 +323,7 @@ int namberAccount(Student* arr, int size, int imputNamberAccount) {
 		}
 	}
 	if (arr[i].namberAccount != imputNamberAccount) {
-	cout << char(219) << char(221) << "	 			" << "This person was not found in the database!" << endl;
+	cout << char(219) << char(221) << "		" << "This person was not found in the database!" << endl;
 	return 0; 
 	}
 }
@@ -299,18 +339,42 @@ int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy
 		}
 	}
 	if (arr[i].policy != imputNamberInsurancePolicy) {
-	cout << char(219) << char(221) << "	 			" << "This person was not found in the database!" << endl;
+	cout << char(219) << char(221) << "		" << "This person was not found in the database!" << endl;
 	return 0;
 		}
+}
+
+int searchTelephone(Student* arr, int size, string telephone) {
+
+	int index = 0;
+	for (int i = 1; i < size; i++) {
+		if (arr[i].telephone == telephone) {
+			index = i;
+			return index;
+	}
+}
+}
+
+int telephoneImput(Student* arr, int size) {
+	string imputNamberTelephoneNamber = 0;
+	cout << char(219) << char(221) << "		" << "Imput search telephone namber: ";
+ // +1(956)366 - 16 - 27
+	cin >> imputNamberTelephoneNamber;
+	cout << char(219) << char(221) << endl;
+	cout << char(219) << char(221) << "		" << "Name: " << endl;
+	int q = searchTelephone(arr, size, imputNamberTelephoneNamber);
+
+	nameSearch(arr, q);
+	return 0;
 }
 
 
 	int policyImput(Student * arr, int size) {
 		int imputNamberInsurancePolicy = 0;
-		cout << char(219) << char(221) << "	 			" << "Imput search Insurance policy: ";
+		cout << char(219) << char(221) << "		" << "Imput search Insurance policy: ";
 		cin >> imputNamberInsurancePolicy;
 		cout << char(219) << char(221) << endl;
-		cout << char(219) << char(221) << "	 			" << "Name: " << endl;
+		cout << char(219) << char(221) << "		" << "Name: " << endl;
 		int q = namberInsurancePolicy(arr, size, imputNamberInsurancePolicy);
 
 		nameSearch(arr, q);
@@ -319,10 +383,10 @@ int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy
 
 	int bankImput(Student * arr, int size) {
 		int imputNamberAccount = 0;
-		cout << char(219) << char(221) << "	 			" << "Imput search Bank account: ";
+		cout << char(219) << char(221) << "		" << "Imput search Bank account: ";
 		cin >> imputNamberAccount;
 		cout << char(219) << char(221) << endl;
-		cout << char(219) << char(221) << "	 			" << "Name: " << endl;
+		cout << char(219) << char(221) << "		" << "Name: " << endl;
 		int i = namberAccount(arr, size, imputNamberAccount);
 
 		nameSearch(arr, i);
@@ -374,37 +438,37 @@ int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy
 		string NameWrite;
 		string SurnameWrite;
 		string PatronymicWrite;
-		cout << char(219) << char(221) << "	 			" << "Search by - " << "[ Surname ]| or |[ Name ] and [ Surname ]| or |[ Name ] and [ Surname ] and [ Patronymic ]|. ..." << endl;
-		cout << char(219) << char(221) << "	 			" << "Search by:  " << "[ Firstname ]| or |       [ Surname ]      | or |             [ Patronymic ]                |     " << endl;
-		cout << char(219) << char(221) << "	 			" << "Imput search name: ";
+		cout << char(219) << char(221) << "		" << "Search by - " << "[ Surname ]| or |[ Name ] and [ Surname ]| or |[ Name ] and [ Surname ] and [ Patronymic ]|. ..." << endl;
+		cout << char(219) << char(221) << "		" << "Search by:  " << "[ Firstname ]| or |       [ Surname ]      | or |             [ Patronymic ]                |     " << endl;
+		cout << char(219) << char(221) << "		" << "Imput search name: ";
 		cin >> nameWrite;
 		if (nameWrite == "Firstname") {
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Name: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Name: ";
 			cin >> NameWrite;
 			cout << char(219) << char(221) << endl;
-			cout << char(219) << char(221) << "	 			" << "Name: " << endl;
+			cout << char(219) << char(221) << "		" << "Name: " << endl;
 			int w = searchName(arr, size, NameWrite);
 			nameSearch(arr, w);
 		}
 		else if (nameWrite == "Surname") {
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Name: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Name: ";
 			cin >> NameWrite;
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Surname: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Surname: ";
 			cin >> SurnameWrite;
 			cout << char(219) << char(221) << endl;
-			cout << char(219) << char(221) << "	 			" << "Name: " << endl;
+			cout << char(219) << char(221) << "		" << "Name: " << endl;
 			int w = searchSurname(arr, size, NameWrite, SurnameWrite);
 			nameSearch(arr, w);
 		}
 		else if (nameWrite == "Patronymic") {
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Name: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Name: ";
 			cin >> NameWrite;
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Surname: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Surname: ";
 			cin >> SurnameWrite;
-			cout << char(219) << char(221) << "	 			" << "Sample name - " << "Patronymic: ";
+			cout << char(219) << char(221) << "		" << "Sample name - " << "Patronymic: ";
 			cin >> PatronymicWrite;
 			cout << char(219) << char(221) << endl;
-			cout << char(219) << char(221) << "	 			" << "Name: " << endl;
+			cout << char(219) << char(221) << "		" << "Name: " << endl;
 			int w = searchPatronymic(arr, size, NameWrite, SurnameWrite, PatronymicWrite);
 			nameSearch(arr, w);
 		}

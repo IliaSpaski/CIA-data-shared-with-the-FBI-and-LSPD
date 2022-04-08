@@ -22,6 +22,7 @@ struct Student {
 	int namberAccount = 0;
 	double creditCard = 0; //Креди́тная ка́рта
 	double debitCard = 0; //Дебетовые карты
+	string telephone;
 	string bloodType; //Гру́ппа кро́ви
 
 };
@@ -45,11 +46,13 @@ int namberAccount(Student* arr, int size, int imputNamberAccount);
 int nameSearch(Student* arr, int i);
 // name(arr, i);
 int namberInsurancePolicy(Student* arr, int size, int imputNamberInsurancePolicy);
-// namberInsurancePolicy(arr, size, imputNamberInsurancePolicy);
+// namberInsurancePolicy(arr, size);
 int policyImput(Student* arr, int size);
-//policyImput(arr, size, imputNamberAccount);
+//policyImput(arr, size);
 int bankImput(Student* arr, int size);
-//bankImput(arr, size, imputNamberAccount);
+//bankImput(arr, size);
 int nameImput(Student* arr, int size);
-//nameImput(arr, size, imputNamberAccount);
+//nameImput(arr, size);
+int telephoneImput(Student* arr, int size);
+//nameImput(arr, size);
 //

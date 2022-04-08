@@ -4,7 +4,7 @@ int main() {
 	//
 	showAllFields();
 	//long int size = 7000000;
-	long int size = 10000;
+	long int size = 3000;
 
 	showTask();
 
@@ -21,7 +21,7 @@ int main() {
 	showTask();
 	cout << char(219) << char(221) << endl;
 	cout << char(219) << char(221) << "	 			" << "Sample data: " << "|XXXX	|XXXXXX	|X.; Age = XX; |Bank account" << char(252) << " 100XXXXXXX - XXXXX$ ; |Insurance policy: XXXXXXXXX, series" << char(252) << ": XXXXXX - XX | " << endl;
-	cout << char(219) << char(221) << "	 			" << "Search by: " << "| First and last name [ Name ] |; | Bank account [ Bank ] |; | Insurance policy [ Policy ] |. " << endl;
+	cout << char(219) << char(221) << "	 			" << "Search by: " << "| First and last name [ Name ] |; | Bank account [ Bank ] |; | Insurance policy [ Policy ] |; Telephone namber [ Telephone ]. " << endl;
 	cout << char(219) << char(221) << "	 			" << "Search type: ";
 	cin >> searchType;
 	cout << char(219) << char(221) << endl;
@@ -44,6 +44,12 @@ int main() {
 	else if(searchType == "Policy") {
 		cout << char(219) << char(221) << endl;
 		policyImput(arr, size);
+		cout << char(219) << char(221) << endl;
+	}
+
+	else if (searchType == "Telephone") {
+		cout << char(219) << char(221) << endl;
+		telephoneImput(arr, size);
 		cout << char(219) << char(221) << endl;
 	}
 
