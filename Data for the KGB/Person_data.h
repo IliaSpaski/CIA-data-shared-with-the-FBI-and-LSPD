@@ -1,7 +1,5 @@
 ﻿#pragma once
 #include "Header.h"
-#include "Database_with_data.h"
-
 // entity-class
 class People {
 //	friend void changeMark(Student& st);

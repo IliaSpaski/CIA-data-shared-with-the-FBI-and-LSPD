@@ -1,3 +1,4 @@
+#pragma once
 #include "Person_data.h"
 #include "Header.h"
 

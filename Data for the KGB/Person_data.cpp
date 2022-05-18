@@ -1,5 +1,6 @@
-﻿#include "Person_data.h"
-
+﻿#pragma once
+#include "Person_data.h"
+#include "Header.h"
 ///////////////////////////////////////////////////////
 // Счётчик кол. людей в базе
 
@@ -188,7 +189,8 @@ int indentOne() {
 ///////////////////////////////////////////////////////
 // Информация о человеке(Вывод)
 string People::getInfo() {
-	if (privacy < 4) {
+//	if (privacy < 4) {
+	if (5 < 4) {
 		return '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
 			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
@@ -202,7 +204,8 @@ string People::getInfo() {
 			+ to_string(additionalseries) + ' ' + "\n" + to_string(indentOne()) + "\n";
 	}
 
-	else if (privacy >= 4) {
+//	else if (privacy >= 4) {
+else if (5 >= 4) {
 		return '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
 			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)

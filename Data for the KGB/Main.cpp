@@ -1,4 +1,7 @@
-#include "Database_with_data.h"
+#pragma once
+#include "Person_data.h"
+#include "Database_with_data.cpp"
+
 
 
 int main() {
@@ -21,7 +24,7 @@ int main() {
 	*/
 
 	Group group1("10b");
-	People s1("Name", "surname", "alphabet", 14, 1234, 124313431, 1231345, 131, 31253215123, 1421, 1424, 1243411213, 1);
+	People s1("Name", "surname", "alphabet", 14, 1234, 124313431, 1231345, 131, 31253215123, 1421, 1424, "1243411213", "1");
 
 
 	cout << "s1.getInfo(): " << s1.getInfo() << endl;
