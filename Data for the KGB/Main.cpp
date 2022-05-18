@@ -23,11 +23,11 @@ int main() {
 	string bloodType; //Группа крови
 	*/
 
-	Group group1("10b");
-	People s1("Name", "surname", "alphabet", 14, 1234, 124313431, 1231345, 131, 31253215123, 1421, 1424, "1243411213", "1");
+	Group TestGroup("Test group");
+	People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
 
 
-	cout << "s1.getInfo(): " << s1.getInfo() << endl;
+	cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
 
 	//Student s2("Ilya", 15, 4, 'm', false);
 	//Student s3("Anna", 15, 8, 'f', true);
