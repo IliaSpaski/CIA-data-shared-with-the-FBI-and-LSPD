@@ -1,8 +1,6 @@
 #pragma once
-#include "Person_data.h"
-#include "Database_with_data.cpp"
-
-
+#include "Database_with_data.h"
+#include "Source.h"
 
 int main() {
 
@@ -23,11 +21,11 @@ int main() {
 	string bloodType; //Группа крови
 	*/
 
-	Group TestGroup("Test group");
-	People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+	//Group TestGroup("Test group");
+	//People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
 
 
-	cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
+	//cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
 
 	//Student s2("Ilya", 15, 4, 'm', false);
 	//Student s3("Anna", 15, 8, 'f', true);
@@ -54,8 +52,5 @@ int main() {
 		cout << group1.get(i).getInfo() << endl;
 	}*/
 
-	return 0;
-
-	//
 	return 0;
 }
