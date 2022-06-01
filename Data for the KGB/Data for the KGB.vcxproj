@@ -142,16 +142,16 @@
     <ClInclude Include="Database_with_data.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="Management.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Person_data.h" />
-    <ClInclude Include="Source.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Database_with_data.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Management.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Person_data.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

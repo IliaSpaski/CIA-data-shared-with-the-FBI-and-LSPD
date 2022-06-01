@@ -1,11 +1,8 @@
 #pragma once
 #include "Database_with_data.h"
-#include "Source.h"
+#include "Management.h"
 
-int main() {
-
-	StartScreenOutput();
-	/*
+/*
 	string name;
 	string surname;
 	string alphabet;
@@ -21,11 +18,23 @@ int main() {
 	string bloodType; //Группа крови
 	*/
 
-	//Group TestGroup("Test group");
-	//People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+string password = randomOfPassword();
+int privacy = 0;
+
+int main() {
 
 
-	//cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
+	StartScreenOutput();
+
+
+	Group TestGroup("Test group");
+	People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+
+
+	cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
+
+
+
 
 	//Student s2("Ilya", 15, 4, 'm', false);
 	//Student s3("Anna", 15, 8, 'f', true);
@@ -51,6 +60,6 @@ int main() {
 	{
 		cout << group1.get(i).getInfo() << endl;
 	}*/
-
+	system("pause");
 	return 0;
 }

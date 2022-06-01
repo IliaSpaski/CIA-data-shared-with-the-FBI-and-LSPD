@@ -18,20 +18,20 @@ private:
 	double creditCard; //Кредитная карта
 	double debitCard; //Дебетовые карты
 	string telephone;
-	string bloodType; //Группа крови
+	string bloodType; //Группа крови O(I) Rh−	O(I) Rh +  A(II) Rh− A(II) Rh + B(III) Rh−	B(III) Rh + AB(IV) Rh−	AB(IV) Rh +
 
 
 public:
 	static const int MAX_STUDENT_AGE = 80;
 	static const int MIN_STUDENT_AGE = 14;
 
-	static const int MAX_MARK = 10;
-	static const int MIN_MARK = 0;
+
 
 	People();
 	People(string name, string surname, string alphabet, int age, double money, int policy, int series, int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType);
 	~People();
-
+	//
+	string getPeople(int size);
 	//
 	string getName();
 	void setName(string n);

@@ -1,4 +1,5 @@
-#include "Source.h"
+#include "Management.h"
+
 
 string randomOfPassword() {
 	srand((unsigned int)time(NULL));
@@ -11,8 +12,8 @@ string randomOfPassword() {
 	return password;
 }
 
-string password = randomOfPassword();
-int privacy = 0;
+extern string password;
+extern int privacy;
 
 void indent() {
 	cout << char(219) << char(221) << "				";
