@@ -31,7 +31,10 @@ public:
 	People(string name, string surname, string alphabet, int age, double money, int policy, int series, int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType);
 	~People();
 	//
-	string getPeople(int size);
+	//string getPeople(int size);
+	//
+	void setPeople(int size);
+	//(string name, string surname, string alphabet, int age, double money, int policy, int series, int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType, int size);
 	//
 	string getName();
 	void setName(string n);

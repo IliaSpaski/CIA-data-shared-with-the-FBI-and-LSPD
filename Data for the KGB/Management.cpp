@@ -19,15 +19,23 @@ void indent() {
 	cout << char(219) << char(221) << "				";
 }
 
+void indentOne() {
+	for (int i = 0; i < 98; i++) {
+		cout << char(219);
+	}
+	cout << char(219);
+}
+
 void StartScreenOutput() {
 
 	// static int password = randomOfPassword();
 	string passwordWrite;
 
 
-	for (int i = 0; i < 98; i++) {
+	for (int i = 0; i < 97; i++) {
 		cout << char(219);
 	}
+	cout << char(221) << endl;
 	//////
 	ofstream fout;
 	char outfilename[] = "C:/hack/out.txt";
@@ -37,7 +45,7 @@ void StartScreenOutput() {
 	fout.close();
 	//	cout << endl  << char(219) << char(221) << "	 			" << "You password: " << password << " end privacy level: " << '3' << endl;
 	for (int i = 0; i < 9; i++) {
-		cout << char(219) << char(221) << endl;
+		cout << char(219) << char(221) << "												" << char(219) << char(221) << endl;
 	}
 	//////
 

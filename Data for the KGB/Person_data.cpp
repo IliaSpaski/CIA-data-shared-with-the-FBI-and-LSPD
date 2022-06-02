@@ -180,16 +180,168 @@ void People::setBloodType(string bloodType) {
 	this->bloodType = bloodType;
 }
 
-int indentOne() {
-	for (int i = 0; i < 98; i++) {
-		return char(219);
-	}
-	return char(219);
-}
 
 extern int privacy;
 
 ///////////////////////////////////////
+void People::setPeople(int size)
+//(string name, string surname, string alphabet, int age, double money, int policy, int series,
+//int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType, int size)
+{
+	srand(time(NULL));
+
+	/////
+	const string NAME[]{
+			"Aleksey", "Anatoli", "Andrey", "Anton", "Arkady", "Artem", "Aleksan", "Artur", "Boris", "Vadim",
+			"Valenti", "Vasily", "Vitaly", "Vladimi", "Vladisl", "Georgy ", "Gleb", "Grigory", "Daniil", "Denis",
+			"Valeriy", "Viktor", "Ivan", "Igor", "Ilya", "Innoken", "Dmitry", "Zakhar", "Yevgeny", "Yegor",
+			"Kirill", "Konstan", "Lev ", "Leonid", "Maksim", "Matvey", "Mikhail", "Moisey", "Nikita", "Nikolay",
+			"Oleg", "Pavel", "Pyotr", "Roman", "Ruslan", "Svyatos", "Semyon", "Sergey", "Stanisl", "Stepan",
+			"Timofey", "Timur", "Fedor", "Filipp", "Eduard", "Yuri", "Yakov", "Yan ", "Yarosla", "Alisa",
+			"Alina", "Alla", "Albina", "Anastas", "Angelin", "Angela", "Anna", "Antonin", "Valenti", "Valeria",
+			"Vera", "Victori", "Galina", "Darina", "Darya", "Diana", "Dina", "Elena", "Zoya", "Irina",
+			"Inna", "Karina", "Kira", "Klara", "Larisa", "Lidia", "Lilia", "Lia ", "Maria", "Nina",
+			"Oxana", "Olga", "Polina", "Raisa", "Rosa", "Tamara", "Elina", "Yulia", "Yana", "Ilia"
+
+					"		", "		", "		", "		", "		", "		", "		", "		", "		", "		",
+	};
+
+
+	const int NAME_COUNT = 100;
+	/////
+
+	/////
+	const string SURNAME[]{
+		"Abramson", "Barnes", "Bawerman", "Becker", "Chesterton", "Conors", "Cook", "Cramer", "Creighton", "Croftoon",
+		"Adamson", "Barrington", "Benson", "Brickman", "Chapman", "Crossman", "Daniels", "Davidson", "Day", "Dean",
+		"Adderiy", "Birch", "Bradshaw", "Brooks", "Charlson", "Dodson", "Derrick", "Dickinson", "Donovan", "Douglas",
+		"Addington", "Bishop", "Bush", "Brown", "Clapton", "Eddington", "Dyson", "Duncan", "Dutton", "Dowman",
+		"Adrian", "Black", "Calhoun", "Campbell", "Clifford", "Edwards", "Elmers", "Enderson", "Erickson", "Evans",
+		"Albertson", "Blare", "Carey", "Carroll", "Chandter", "Fane", "Farmer", "Farrell", "Ferguson", "Finch",
+		"Babcock", "Blomfield", "Coleman", "Carter", "Fisher", "Fleming", "Ford", "Forman", "Forster", "Foster",
+		"Archibald", "Boolman", "Faber", "Gill", "Garrison", "Gate", "Gardner", "Freeman", "Fulton", "Galbraith",
+		"Arthurs", "Bradberry", "Goodman", "Hardman", "Holmes", "Jenkin", "Kendal", "Kirk", "Lawman", "Little",
+		"Alsopp", "Gilson", "Hailey", "Harrison", "Howard", "Johnson", "Kennedy", "Laird", "Leapman", "Livingston",
+		"Backer", "Gimson", "Hamphrey", "Hawkins", "James", "Keat", "Kennett", "Lamberts", "Leman", "Longman",
+		"Baldwin", "Goldman", "Hancock", "Higgins", "Jeff", "Kelly", "Kingsman", "Larkins", "Lewin", "MacAdam",
+		"Mackenzie", "Mansfield", "Marlow", "Marshman", "Mason", "Mathews", "Mercer", "Michaelson", "Miers", "Miller",
+		"Miln", "Milton", "Nevill", "Oakman", "Ogden", "Page", "Parson", "Pass", "Porter", "Ramacey",
+		"Reynolds", "Salomon", "Samuels", "Walter", "Spaski", "Shackley", "Taylor", "Walkman", "Walter", "Youmans",
+
+	};
+
+	const int SURNAME_COUNT = 150;
+	/////
+	/////
+	const string ALPHABET[]{
+		"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M",
+	};
+
+	const int ALPHABET_COUNT = 26;
+	/////
+	const string BLOOD_TYPE[]{
+		" O(I) Rh -", "O(I) Rh +", " A(II) Rh -",  "A(II) Rh +",  "B(III) Rh -",  "B(III) Rh +", "AB(IV) Rh -", "AB(IV) Rh +",
+	};
+
+	const int BLOOD_TYPE_COUNT = 8;
+	/////
+
+	/////
+	const string TELEP_CODE[]{
+	"956","903","863","979","205","682","812"
+	};
+
+	const int TELEP_CODE_COUNT = 7;
+	/////
+
+	/////
+	const int MAX_MONEY = 1000000;
+	const int MIN_MONEY = 0;
+
+	const int MAX_MONEY_CREDIT_CARD = 1000000;
+	const int MIN_MONEY_CREDIT_CARD = -10000;
+
+	const int MAX_MONEY_DEBIT_CARD = 1000000;
+	const int MIN_MONEY_DEBIT_CARD = -10000;
+
+
+	const int MAX_AGE = 99;
+	const int MIN_AGE = 12;
+
+	const long long int MAX_INSURANCE_POLICY = 9999999999;
+	long long int MIN_INSURANCE_POLICY = 1000000000;
+
+	const int MAX_SERIES = 999999;
+	const int MIN_SERIES = 900009;
+
+	const int MAX_SERIES_ADDITIONAL = 99;
+	const int MIN_SERIES_ADDITIONAL = 00;
+
+	const int MAX_NAM_ACCOUNT = 9999999999;
+	long long int MIN_NAM_ACCOUNT = 1000000000;
+
+	for (int i = 0; i < size; i++) {
+		const int x = rand() % (999 - 100);
+		const int z = rand() % (99 - 10);
+		const int a = rand() % (99 - 10);
+		long long int nam2 = MIN_INSURANCE_POLICY++ + i + rand() % 2 + 1;
+		long long int nam1 = MIN_NAM_ACCOUNT++ + i + rand() % 2 + i;
+		this->name = NAME[rand() % NAME_COUNT];
+		this->surname = SURNAME[rand() % SURNAME_COUNT];
+		this->alphabet = ALPHABET[rand() % ALPHABET_COUNT];
+		this->age = rand() % (MAX_AGE - MIN_AGE - 1) + MIN_AGE;
+		this->policy = nam1;
+		this->series = rand() % (MAX_SERIES - MIN_SERIES - 1) + MIN_SERIES;
+		this->additionalseries = rand() % (MAX_SERIES_ADDITIONAL - MIN_SERIES_ADDITIONAL - 1) + MIN_SERIES_ADDITIONAL;
+		this->namberAccount = nam2;
+		this->bloodType = BLOOD_TYPE[rand() % BLOOD_TYPE_COUNT];
+		this->telephone = "+1(" + TELEP_CODE[rand() % TELEP_CODE_COUNT] + ')' + to_string(x) + '-' + to_string(z) + '-' + to_string(a);
+
+//		if (privacy >= 4) {
+			this->money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
+			this->creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
+			this->debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
+//		}
+//		return name + surname + alphabet + to_string(age) + telephone + to_string(namberAccount) + to_string(money) + to_string(creditCard) + to_string(debitCard) + bloodType + to_string(policy) + to_string(series) + to_string(additionalseries);
+	}
+}
+	///////////////////////////////////////
+
+//
+///////////////////////////////////////////////////////
+// Информация о человеке(Вывод)
+string People::getInfo() {
+	if (privacy < 4) {
+//	if (5 < 4) {
+	   return char(219) + char(221) + "		" + '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
+			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
+			+ " - " + "(In connection with the U.S.Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4.)" + ' ' + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Money for credit card: "
+			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Money for debit card: "
+			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n" 
+			+ char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - " + to_string(additionalseries) + ' ' + "\n" + char(219) + char(221) + "		";
+	}
+
+	else if (privacy >= 4) {
+//else if (5 >= 4) {
+	   return char(219) + char(221) + "		" + '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
+			+ ' ' + '|' + telephone + "\n"    + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
+			+ " - " + to_string(money) + '$'  + ' ' + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Money for credit card: " + to_string(creditCard) + '$' + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Money for debit card: " + to_string(debitCard) + '$' + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n"
+			+ char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - " + to_string(additionalseries) + ' ' +  "\n" + char(219) + char(221) + "		";
+	}
+}
+//	"; alive = " + (alive ? "yes" : "no");
+///////////////////////////////////////////////////////
+
+
+/*
 string People::getPeople(int size) {
 	srand(time(NULL));
 
@@ -301,48 +453,12 @@ string People::getPeople(int size) {
 		string bloodType = BLOOD_TYPE[rand() % BLOOD_TYPE_COUNT];
 		string telephone = "+1(" + TELEP_CODE[rand() % TELEP_CODE_COUNT] + ')' + to_string(x) + '-' + to_string(z) + '-' + to_string(a);
 
-//		if (privacy >= 4) {
-			int money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
-			int creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
-			int debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
-//		}
+		//		if (privacy >= 4) {
+		int money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
+		int creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
+		int debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
+		//		}
 		return name + surname + alphabet + to_string(age) + telephone + to_string(namberAccount) + to_string(money) + to_string(creditCard) + to_string(debitCard) + bloodType + to_string(policy) + to_string(series) + to_string(additionalseries);
 	}
 }
-	///////////////////////////////////////
-
-//
-///////////////////////////////////////////////////////
-// Информация о человеке(Вывод)
-string People::getInfo() {
-	if (privacy < 4) {
-//	if (5 < 4) {
-		return '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
-			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
-			+ " - " + "(In connection with the U.S.Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4.)" + ' ' + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Money for credit card: "
-			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Money for debit card: "
-			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n" +
-			char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - "
-			+ to_string(additionalseries) + ' ' + "\n" + to_string(indentOne()) + "\n";
-	}
-
-	else if (privacy >= 4) {
-//else if (5 >= 4) {
-		return '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
-			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
-			+ " - " + to_string(money) + '$' + ' ' + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Money for credit card: " + to_string(creditCard) + '$' + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Money for debit card: " + to_string(debitCard) + '$' + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n" +
-			char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - "
-			+ to_string(additionalseries) + ' ' + "\n" + to_string(indentOne()) + "\n";
-	}
-}
-//	"; alive = " + (alive ? "yes" : "no");
-///////////////////////////////////////////////////////
-
+*/

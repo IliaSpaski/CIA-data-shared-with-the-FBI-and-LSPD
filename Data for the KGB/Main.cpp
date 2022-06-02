@@ -28,14 +28,17 @@ int main() {
 
 
 	Group TestGroup("Test group");
-	People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+	//People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+
+		People TestPerson;
+
+		TestPerson.setPeople(1);
+		indentOne();
+		cout << endl << TestPerson.getInfo() << endl;
+		indentOne();
 
 
-	cout << "TestPerson1.getInfo(): " << TestPerson1.getInfo() << endl;
-
-
-
-
+	
 	//Student s2("Ilya", 15, 4, 'm', false);
 	//Student s3("Anna", 15, 8, 'f', true);
 	//Student s4("Diana", 15, 10, 'f', true);
