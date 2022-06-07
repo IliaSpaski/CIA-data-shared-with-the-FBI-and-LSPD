@@ -18,6 +18,11 @@
 	string bloodType; //Группа крови
 	*/
 
+
+
+	//People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+
+
 string password = randomOfPassword();
 int privacy = 0;
 
@@ -27,18 +32,89 @@ int main() {
 	StartScreenOutput();
 
 
-	Group TestGroup("Test group");
-	//People TestPerson1("Name", "surname", "alphabet", 01, 0101, 010101010, 0101010, 010, 01010101010, 0101, 0101, "+375292375904", "2");
+	Group Wanted ("Search for persons who committed an offense");
 
-		People TestPerson;
+
+	Group Agents("FBI and Interpol agents");
+
+
+	Group Civil("Civilians");
+
+
+
+
+
+
+
+	People TestPersons[4];
+
+
+
+	People TestPerson1;
+	People TestPerson2;
+	People TestPerson3;
+
+		
 
 		TestPerson.setPeople(1);
 		indentOne();
 		cout << endl << TestPerson.getInfo() << endl;
 		indentOne();
 
+		TestPerson1.setPeople(2);
+		indentOne();
+		cout << endl << TestPerson1.getInfo() << endl;
+		indentOne();
 
-	
+		TestPerson2.setPeople(3);
+		indentOne();
+		cout << endl << TestPerson2.getInfo() << endl;
+		indentOne();
+
+		TestPerson3.setPeople(4);
+		indentOne();
+		cout << endl << TestPerson3.getInfo() << endl;
+		indentOne();
+
+
+		Wanted.add(TestPerson);
+		indentOne();
+		cout << "\n\n" << Wanted.getInfo() << "\n\n";
+		indentOne();
+
+
+		Agents.add(TestPerson1);
+		indentOne();
+		cout << "\n\n" << Agents.getInfo() << "\n\n";
+		indentOne();
+
+
+		Civil.add(TestPerson2);
+		Civil.add(TestPerson3);
+		indentOne();
+		
+		cout << "\n\n" << Civil.getInfo() << "\n\n";
+		indentOne();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//Student s2("Ilya", 15, 4, 'm', false);
 	//Student s3("Anna", 15, 8, 'f', true);
 	//Student s4("Diana", 15, 10, 'f', true);

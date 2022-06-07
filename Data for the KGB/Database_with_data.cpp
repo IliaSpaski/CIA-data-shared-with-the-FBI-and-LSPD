@@ -60,7 +60,7 @@ string Group::getInfo() {
 		return "Group " + name + " is empty.";
 	}
 
-	string msg = "Students of group " + name + ":\n";
+	string msg = "People of group " + name + ":\n";
 
 	for (int i = 0; i < size; i++)
 	{
@@ -70,10 +70,10 @@ string Group::getInfo() {
 	return msg;
 }
 
-void Group::add(People student) {
+void Group::add(People people) {
 	if (list == NULL) {
 		list = new People[1];
-		list[0] = student;
+		list[0] = people;
 		size = 1;
 	}
 	else {
@@ -84,7 +84,7 @@ void Group::add(People student) {
 		{
 			temp[i] = list[i];
 		}
-		temp[size] = student;
+		temp[size] = people;
 		size++;
 		delete[] list;
 		list = temp;
