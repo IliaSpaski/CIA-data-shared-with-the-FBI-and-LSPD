@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Person_data.h"
 #include "Header.h"
+
 ///////////////////////////////////////////////////////
 // Счётчик кол. людей в базе
 
@@ -306,14 +307,16 @@ void People::setPeople(int size)
 	}
 }
 	///////////////////////////////////////
-
+string Field() {
+	return char(219) + char(221) + "		" + '|';
+}
 //
 ///////////////////////////////////////////////////////
 // Информация о человеке(Вывод)
 string People::getInfo() {
 	if (privacy < 4) {
 //	if (5 < 4) {
-	   return char(219) + char(221) + "		" + '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+	   return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
 			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
 			+ " - " + "(In connection with the U.S.Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4.)" + ' ' + ';' + "\n"
@@ -327,7 +330,7 @@ string People::getInfo() {
 
 	else if (privacy >= 4) {
 //else if (5 >= 4) {
-	   return char(219) + char(221) + "		" + '|' + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+	   return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
 			+ ' ' + '|' + telephone + "\n"    + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
 			+ " - " + to_string(money) + '$'  + ' ' + ';' + "\n"
@@ -341,124 +344,182 @@ string People::getInfo() {
 ///////////////////////////////////////////////////////
 
 
-/*
-string People::getPeople(int size) {
-	srand(time(NULL));
-
-	/////
-	const string NAME[]{
-			"Aleksey", "Anatoli", "Andrey", "Anton", "Arkady", "Artem", "Aleksan", "Artur", "Boris", "Vadim",
-			"Valenti", "Vasily", "Vitaly", "Vladimi", "Vladisl", "Georgy ", "Gleb", "Grigory", "Daniil", "Denis",
-			"Valeriy", "Viktor", "Ivan", "Igor", "Ilya", "Innoken", "Dmitry", "Zakhar", "Yevgeny", "Yegor",
-			"Kirill", "Konstan", "Lev ", "Leonid", "Maksim", "Matvey", "Mikhail", "Moisey", "Nikita", "Nikolay",
-			"Oleg", "Pavel", "Pyotr", "Roman", "Ruslan", "Svyatos", "Semyon", "Sergey", "Stanisl", "Stepan",
-			"Timofey", "Timur", "Fedor", "Filipp", "Eduard", "Yuri", "Yakov", "Yan ", "Yarosla", "Alisa",
-			"Alina", "Alla", "Albina", "Anastas", "Angelin", "Angela", "Anna", "Antonin", "Valenti", "Valeria",
-			"Vera", "Victori", "Galina", "Darina", "Darya", "Diana", "Dina", "Elena", "Zoya", "Irina",
-			"Inna", "Karina", "Kira", "Klara", "Larisa", "Lidia", "Lilia", "Lia ", "Maria", "Nina",
-			"Oxana", "Olga", "Polina", "Raisa", "Rosa", "Tamara", "Elina", "Yulia", "Yana", "Ilia"
-
-					"		", "		", "		", "		", "		", "		", "		", "		", "		", "		",
-	};
+void People::namesearch(People arr, int i) {
+	TestPersons[size];
+	cout << char(219) << char(221) << "		" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << " age = " << arr[i].age << ';';
+	cout << " |bank account " << char(252) << ' ' << arr[i].namberaccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << "insurance policy: "
+		<< arr[i].policy << ", series " << char(252) << ':' << ' ' << arr[i].series << " - " << arr[i].additionalseries << '|' << ' ' << endl;
+	for (int i = 0; i < 98; i++) {
+		cout << char(219);
+	}
+	cout << endl;
+	return 0;
+}
 
 
-	const int NAME_COUNT = 100;
-	/////
+///
 
-	/////
-	const string SURNAME[]{
-		"Abramson", "Barnes", "Bawerman", "Becker", "Chesterton", "Conors", "Cook", "Cramer", "Creighton", "Croftoon",
-		"Adamson", "Barrington", "Benson", "Brickman", "Chapman", "Crossman", "Daniels", "Davidson", "Day", "Dean",
-		"Adderiy", "Birch", "Bradshaw", "Brooks", "Charlson", "Dodson", "Derrick", "Dickinson", "Donovan", "Douglas",
-		"Addington", "Bishop", "Bush", "Brown", "Clapton", "Eddington", "Dyson", "Duncan", "Dutton", "Dowman",
-		"Adrian", "Black", "Calhoun", "Campbell", "Clifford", "Edwards", "Elmers", "Enderson", "Erickson", "Evans",
-		"Albertson", "Blare", "Carey", "Carroll", "Chandter", "Fane", "Farmer", "Farrell", "Ferguson", "Finch",
-		"Babcock", "Blomfield", "Coleman", "Carter", "Fisher", "Fleming", "Ford", "Forman", "Forster", "Foster",
-		"Archibald", "Boolman", "Faber", "Gill", "Garrison", "Gate", "Gardner", "Freeman", "Fulton", "Galbraith",
-		"Arthurs", "Bradberry", "Goodman", "Hardman", "Holmes", "Jenkin", "Kendal", "Kirk", "Lawman", "Little",
-		"Alsopp", "Gilson", "Hailey", "Harrison", "Howard", "Johnson", "Kennedy", "Laird", "Leapman", "Livingston",
-		"Backer", "Gimson", "Hamphrey", "Hawkins", "James", "Keat", "Kennett", "Lamberts", "Leman", "Longman",
-		"Baldwin", "Goldman", "Hancock", "Higgins", "Jeff", "Kelly", "Kingsman", "Larkins", "Lewin", "MacAdam",
-		"Mackenzie", "Mansfield", "Marlow", "Marshman", "Mason", "Mathews", "Mercer", "Michaelson", "Miers", "Miller",
-		"Miln", "Milton", "Nevill", "Oakman", "Ogden", "Page", "Parson", "Pass", "Porter", "Ramacey",
-		"Reynolds", "Salomon", "Samuels", "Walter", "Spaski", "Shackley", "Taylor", "Walkman", "Walter", "Youmans",
-
-	};
-
-	const int SURNAME_COUNT = 150;
-	/////
-	/////
-	const string ALPHABET[]{
-		"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M",
-	};
-
-	const int ALPHABET_COUNT = 26;
-	/////
-	const string BLOOD_TYPE[]{
-		" O(I) Rh -", "O(I) Rh +", " A(II) Rh -",  "A(II) Rh +",  "B(III) Rh -",  "B(III) Rh +", "AB(IV) Rh -", "AB(IV) Rh +",
-	};
-
-	const int BLOOD_TYPE_COUNT = 8;
-	/////
-
-	/////
-	const string TELEP_CODE[]{
-	"956","903","863","979","205","682","812"
-	};
-
-	const int TELEP_CODE_COUNT = 7;
-	/////
-
-	/////
-	const int MAX_MONEY = 1000000;
-	const int MIN_MONEY = 0;
-
-	const int MAX_MONEY_CREDIT_CARD = 1000000;
-	const int MIN_MONEY_CREDIT_CARD = -10000;
-
-	const int MAX_MONEY_DEBIT_CARD = 1000000;
-	const int MIN_MONEY_DEBIT_CARD = -10000;
-
-
-	const int MAX_AGE = 99;
-	const int MIN_AGE = 12;
-
-	const long long int MAX_INSURANCE_POLICY = 9999999999;
-	long long int MIN_INSURANCE_POLICY = 1000000000;
-
-	const int MAX_SERIES = 999999;
-	const int MIN_SERIES = 900009;
-
-	const int MAX_SERIES_ADDITIONAL = 99;
-	const int MIN_SERIES_ADDITIONAL = 00;
-
-	const int MAX_NAM_ACCOUNT = 9999999999;
-	long long int MIN_NAM_ACCOUNT = 1000000000;
-
-
-	for (int i = 0; i < size; i++) {
-		const int x = rand() % (999 - 100);
-		const int z = rand() % (99 - 10);
-		const int a = rand() % (99 - 10);
-		long long int nam2 = MIN_INSURANCE_POLICY++ + i + rand() % 2 + 1;
-		long long int nam1 = MIN_NAM_ACCOUNT++ + i + rand() % 2 + i;
-		string name = NAME[rand() % NAME_COUNT];
-		string surname = SURNAME[rand() % SURNAME_COUNT];
-		string alphabet = ALPHABET[rand() % ALPHABET_COUNT];
-		int age = rand() % (MAX_AGE - MIN_AGE - 1) + MIN_AGE;
-		int policy = nam1;
-		int series = rand() % (MAX_SERIES - MIN_SERIES - 1) + MIN_SERIES;
-		int additionalseries = rand() % (MAX_SERIES_ADDITIONAL - MIN_SERIES_ADDITIONAL - 1) + MIN_SERIES_ADDITIONAL;
-		int namberAccount = nam2;
-		string bloodType = BLOOD_TYPE[rand() % BLOOD_TYPE_COUNT];
-		string telephone = "+1(" + TELEP_CODE[rand() % TELEP_CODE_COUNT] + ')' + to_string(x) + '-' + to_string(z) + '-' + to_string(a);
-
-		//		if (privacy >= 4) {
-		int money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
-		int creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
-		int debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
-		//		}
-		return name + surname + alphabet + to_string(age) + telephone + to_string(namberAccount) + to_string(money) + to_string(creditCard) + to_string(debitCard) + bloodType + to_string(policy) + to_string(series) + to_string(additionalseries);
+int namberaccount(People arr, int size, int imputnamberaccount) {
+	int index = 0;
+	int i = 1;
+	for (i; i < size; i++)
+	{
+		if (arr[i].namberaccount == imputnamberaccount) {
+			index = i;
+			return index;
+		}
+	}
+	if (arr[i].namberaccount != imputnamberaccount) {
+		cout << char(219) << char(221) << "		" << "this person was not found in the database!" << endl;
+		return 0;
 	}
 }
-*/
+
+int namberinsurancepolicy(People arr, int size, int imputnamberinsurancepolicy) {
+	int index = 0;
+	int i = 1;
+	for (i; i < size; i++)
+	{
+		if (arr[i].policy == imputnamberinsurancepolicy) {
+			index = i;
+			return index;
+		}
+	}
+	if (arr[i].policy != imputnamberinsurancepolicy) {
+		cout << char(219) << char(221) << "		" << "this person was not found in the database!" << endl;
+		return 0;
+	}
+}
+
+int searchtelephone(People arr, int size, string telephone) {
+
+	int index = 0;
+	for (int i = 1; i < size; i++) {
+		if (arr[i].telephone == telephone) {
+			index = i;
+			return index;
+		}
+	}
+}
+
+int telephoneimput(People arr, int size) {
+	string imputnambertelephonenamber = 0;
+	cout << char(219) << char(221) << "		" << "imput search telephone namber: ";
+	// +1(956)366 - 16 - 27
+	cin >> imputnambertelephonenamber;
+	cout << char(219) << char(221) << endl;
+	cout << char(219) << char(221) << "		" << "name: " << endl;
+	int q = searchtelephone(arr, size, imputnambertelephonenamber);
+
+	namesearch(arr, q);
+	return 0;
+}
+
+
+int policyimput(People arr, int size) {
+	int imputnamberinsurancepolicy = 0;
+	cout << char(219) << char(221) << "		" << "imput search insurance policy: ";
+	cin >> imputnamberinsurancepolicy;
+	cout << char(219) << char(221) << endl;
+	cout << char(219) << char(221) << "		" << "name: " << endl;
+	int q = namberinsurancepolicy(arr, size, imputnamberinsurancepolicy);
+
+	namesearch(arr, q);
+	return 0;
+}
+
+int bankimput(People arr, int size) {
+	int imputnamberaccount = 0;
+	cout << char(219) << char(221) << "		" << "imput search bank account: ";
+	cin >> imputnamberaccount;
+	cout << char(219) << char(221) << endl;
+	cout << char(219) << char(221) << "		" << "name: " << endl;
+	int i = namberaccount(arr, size, imputnamberaccount);
+
+	namesearch(arr, i);
+	return 0;
+
+}
+
+
+int searchname(People arr, int size, string surname) {
+
+	int index = 0;
+	for (int i = 1; i < size; i++) {
+		if (arr[i].surname == surname) {
+			index = i;
+			return index;
+		}
+	}
+}
+
+int searchsurname(People arr, int size, string name, string surname) {
+
+	int index = 0;
+	for (int i = 1; i < size; i++)
+	{
+		if (arr[i].name == name && arr[i].surname == surname) {
+			index = i;
+			return index;
+		}
+
+	}
+}
+
+int searchpatronymic(People arr, int size, string name, string surname, string patronymic) {
+
+	int index = 0;
+	for (int i = 1; i < size; i++)
+	{
+		if (arr[i].name == name && arr[i].surname == surname && arr[i].alphabet == patronymic) {
+			index = i;
+			return index;
+		}
+
+	}
+}
+
+
+int nameimput(People arr, int size) {
+	string namewrite;
+	string surnamewrite;
+	string patronymicwrite;
+	cout << char(219) << char(221) << "		" << "search by - " << "[ surname ]| or |[ name ] and [ surname ]| or |[ name ] and [ surname ] and [ patronymic ]|. ..." << endl;
+	cout << char(219) << char(221) << "		" << "search by:  " << "[ firstname ]| or |       [ surname ]      | or |             [ patronymic ]                |     " << endl;
+	cout << char(219) << char(221) << "		" << "imput search name: ";
+	cin >> namewrite;
+	if (namewrite == "firstname") {
+		cout << char(219) << char(221) << "		" << "sample name - " << "name: ";
+		cin >> namewrite;
+		cout << char(219) << char(221) << endl;
+		cout << char(219) << char(221) << "		" << "name: " << endl;
+		int w = searchname(arr, size, namewrite);
+		namesearch(arr, w);
+	}
+	else if (namewrite == "surname") {
+		cout << char(219) << char(221) << "		" << "sample name - " << "name: ";
+		cin >> namewrite;
+		cout << char(219) << char(221) << "		" << "sample name - " << "surname: ";
+		cin >> surnamewrite;
+		cout << char(219) << char(221) << endl;
+		cout << char(219) << char(221) << "		" << "name: " << endl;
+		int w = searchsurname(arr, size, namewrite, surnamewrite);
+		namesearch(arr, w);
+	}
+	else if (namewrite == "patronymic") {
+		cout << char(219) << char(221) << "		" << "sample name - " << "name: ";
+		cin >> namewrite;
+		cout << char(219) << char(221) << "		" << "sample name - " << "surname: ";
+		cin >> surnamewrite;
+		cout << char(219) << char(221) << "		" << "sample name - " << "patronymic: ";
+		cin >> patronymicwrite;
+		cout << char(219) << char(221) << endl;
+		cout << char(219) << char(221) << "		" << "name: " << endl;
+		int w = searchpatronymic(arr, size, namewrite, surnamewrite, patronymicwrite);
+		namesearch(arr, w);
+	}
+
+	return 0;
+}

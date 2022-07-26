@@ -77,4 +77,34 @@ public:
 	//
 	static int getCount();
 	string getInfo();
+
+
+
+
+
+
+	void namesearch(People arr, int i) 
+
+	int namberaccount(People arr, int size, int imputnamberaccount) 
+
+	int namberinsurancepolicy(People arr, int size, int imputnamberinsurancepolicy) 
+
+	int searchtelephone(People arr, int size, string telephone) 
+
+	int telephoneimput(People arr, int size) 
+
+	int policyimput(People arr, int size) 
+
+	int bankimput(People arr, int size) 
+
+	int searchname(People arr, int size, string surname) 
+
+	int searchsurname(People arr, int size, string name, string surname) 
+
+	int searchpatronymic(People arr, int size, string name, string surname, string patronymic) 
+
+	int nameimput(People arr, int size) 
+	
+
+
 };
