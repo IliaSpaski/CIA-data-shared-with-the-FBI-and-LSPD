@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Person_data.h"
-#include "Header.h"
+
 
 ///////////////////////////////////////////////////////
 // Счётчик кол. людей в базе
@@ -344,8 +344,10 @@ string People::getInfo() {
 ///////////////////////////////////////////////////////
 
 
+
+
 void People::namesearch(People arr, int i) {
-	TestPersons[size];
+//	TestPersons[size];
 	cout << char(219) << char(221) << "		" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
 	cout << char(219) << char(221) << "		" << '|' << " age = " << arr[i].age << ';';
 	cout << " |bank account " << char(252) << ' ' << arr[i].namberaccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
@@ -520,6 +522,8 @@ int nameimput(People arr, int size) {
 		int w = searchpatronymic(arr, size, namewrite, surnamewrite, patronymicwrite);
 		namesearch(arr, w);
 	}
+
+	
 
 	return 0;
 }

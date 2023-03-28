@@ -1,7 +1,7 @@
 #pragma once
 #include "Database_with_data.h"
 #include "Management.h"
-#include "Person_data.cpp"
+//#include "Person_data.cpp"
 
 /*
 	string name;
@@ -80,7 +80,7 @@ int main() {
 		
 	
 			
-
+			
 			int stop;
 			do {
 				string searchtype;
@@ -129,7 +129,7 @@ int main() {
 					cout << endl;
 				}
 			} while (stop != 0);
-
+			
 
 
 
