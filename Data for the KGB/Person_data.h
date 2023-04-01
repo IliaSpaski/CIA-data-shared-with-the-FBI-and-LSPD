@@ -78,11 +78,7 @@ public:
 	static int getCount();
 	string getInfo();
 
-
-	
-
-
-
+};
 	void namesearch(People arr, int i);
 
 	int namberaccount(People arr, int size, int imputnamberaccount);
@@ -102,9 +98,6 @@ public:
 	int searchsurname(People arr, int size, string name, string surname);
 
 	int searchpatronymic(People arr, int size, string name, string surname, string patronymic);
-
-	int nameimput(People arr, int size);
 	
+	int nameimput(People arr, int size);
 
-
-};

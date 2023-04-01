@@ -1,7 +1,5 @@
 ﻿#pragma once
 #include "Person_data.h"
-
-
 ///////////////////////////////////////////////////////
 // Счётчик кол. людей в базе
 
@@ -31,24 +29,24 @@ People::People() {
 	string bloodType; //Гру́ппа крови
 	*/
 	count++;
-	 name = "no name";
-	 surname = "no surname";
-	 alphabet = "no alphabet";
-	 age = 0;
-	 money = 0;
-	 policy = 0;
-	 series = 0;
-	 additionalseries = 0;
-	 namberAccount = 0;
-	 creditCard = 0; //Креди́тная карта
-	 debitCard = 0; //Дебетовые карты
-	 telephone = "no telephone";
-	 bloodType = "no bloodType"; //Гру́ппа крови
+	name = "no name";
+	surname = "no surname";
+	alphabet = "no alphabet";
+	age = 0;
+	money = 0;
+	policy = 0;
+	series = 0;
+	additionalseries = 0;
+	namberAccount = 0;
+	creditCard = 0; //Креди́тная карта
+	debitCard = 0; //Дебетовые карты
+	telephone = "no telephone";
+	bloodType = "no bloodType"; //Гру́ппа крови
 }
 
 People::People(string name, string surname, string alphabet, int age, double money, int policy, int series,
-int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType) {
-	
+	int additionalseries, int namberAccount, double creditCard, double debitCard, string telephone, string bloodType) {
+
 	count++;
 	this->name = name;
 	this->surname = surname;
@@ -68,7 +66,6 @@ int additionalseries, int namberAccount, double creditCard, double debitCard, st
 People::~People() {
 	count--;
 }
-
 
 ///////////////////////////////////////////////////////
 // Функции для пораметров человека
@@ -298,15 +295,15 @@ void People::setPeople(int size)
 		this->bloodType = BLOOD_TYPE[rand() % BLOOD_TYPE_COUNT];
 		this->telephone = "+1(" + TELEP_CODE[rand() % TELEP_CODE_COUNT] + ')' + to_string(x) + '-' + to_string(z) + '-' + to_string(a);
 
-//		if (privacy >= 4) {
-			this->money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
-			this->creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
-			this->debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
-//		}
-//		return name + surname + alphabet + to_string(age) + telephone + to_string(namberAccount) + to_string(money) + to_string(creditCard) + to_string(debitCard) + bloodType + to_string(policy) + to_string(series) + to_string(additionalseries);
+		//		if (privacy >= 4) {
+		this->money = rand() % (MAX_MONEY - MIN_MONEY - 1) + MIN_MONEY;
+		this->creditCard = rand() % (MAX_MONEY_CREDIT_CARD - MIN_MONEY_CREDIT_CARD) / 1.5 + (MAX_MONEY_CREDIT_CARD / 4.2);
+		this->debitCard = rand() % (MAX_MONEY_DEBIT_CARD - MIN_MONEY_DEBIT_CARD) / 1.5 + (MAX_MONEY_DEBIT_CARD / 3.4);
+		//		}
+		//		return name + surname + alphabet + to_string(age) + telephone + to_string(namberAccount) + to_string(money) + to_string(creditCard) + to_string(debitCard) + bloodType + to_string(policy) + to_string(series) + to_string(additionalseries);
 	}
 }
-	///////////////////////////////////////
+///////////////////////////////////////
 string Field() {
 	return char(219) + char(221) + "		" + '|';
 }
@@ -315,8 +312,8 @@ string Field() {
 // Информация о человеке(Вывод)
 string People::getInfo() {
 	if (privacy < 4) {
-//	if (5 < 4) {
-	   return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+		//	if (5 < 4) {
+		return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
 			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
 			+ " - " + "(In connection with the U.S.Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4.)" + ' ' + ';' + "\n"
@@ -324,31 +321,29 @@ string People::getInfo() {
 			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Money for debit card: "
 			+ "In connection with the U.S. Attorney's ruling: 10.22363.2313-2337-2017-21-1-9-27 access to view information about bank accounts is limited to level 4." + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n" 
+			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - " + to_string(additionalseries) + ' ' + "\n" + char(219) + char(221) + "		";
 	}
 
 	else if (privacy >= 4) {
-//else if (5 >= 4) {
-	   return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
+		//else if (5 >= 4) {
+		return "		|" + name + ' ' + '|' + surname + ' ' + '|' + alphabet + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Age = " + to_string(age) + ';'
-			+ ' ' + '|' + telephone + "\n"    + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
-			+ " - " + to_string(money) + '$'  + ' ' + ';' + "\n"
+			+ ' ' + '|' + telephone + "\n" + char(219) + char(221) + "		" + '|' + "Bank account " + char(252) + ' ' + to_string(namberAccount)
+			+ " - " + to_string(money) + '$' + ' ' + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Money for credit card: " + to_string(creditCard) + '$' + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Money for debit card: " + to_string(debitCard) + '$' + ';' + "\n"
 			+ char(219) + char(221) + "		" + '|' + " Blood type: " + bloodType + ';' + "\n"
-			+ char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - " + to_string(additionalseries) + ' ' +  "\n" + char(219) + char(221) + "		";
+			+ char(219) + char(221) + "		" + '|' + "Insurance policy: " + to_string(policy) + ", series " + char(252) + ':' + ' ' + to_string(series) + " - " + to_string(additionalseries) + ' ' + "\n" + char(219) + char(221) + "		";
 	}
 }
 //	"; alive = " + (alive ? "yes" : "no");
 ///////////////////////////////////////////////////////
 
 
-
-
-void People::namesearch(People arr, int i) {
-//	TestPersons[size];
-	cout << char(219) << char(221) << "		" << '|' << arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
+void namesearch(People arr, int i) {
+	//TestPersons[size];
+	cout << char(219) << char(221) << "		" << '|' <<arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
 	cout << char(219) << char(221) << "		" << '|' << " age = " << arr[i].age << ';';
 	cout << " |bank account " << char(252) << ' ' << arr[i].namberaccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
 	cout << char(219) << char(221) << "		" << '|' << "insurance policy: "
@@ -357,7 +352,6 @@ void People::namesearch(People arr, int i) {
 		cout << char(219);
 	}
 	cout << endl;
-	return 0;
 }
 
 
@@ -522,8 +516,6 @@ int nameimput(People arr, int size) {
 		int w = searchpatronymic(arr, size, namewrite, surnamewrite, patronymicwrite);
 		namesearch(arr, w);
 	}
-
-	
 
 	return 0;
 }
