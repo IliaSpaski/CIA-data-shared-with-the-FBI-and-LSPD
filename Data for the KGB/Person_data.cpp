@@ -341,13 +341,13 @@ string People::getInfo() {
 ///////////////////////////////////////////////////////
 
 
-void namesearch(People arr, int i) {
+void namesearch(People *arr, int i) {
 	//TestPersons[size];
-	cout << char(219) << char(221) << "		" << '|' <<arr[i].name << " " << '|' << arr[i].surname << " " << '|' << arr[i].alphabet << ';' << endl;
-	cout << char(219) << char(221) << "		" << '|' << " age = " << arr[i].age << ';';
-	cout << " |bank account " << char(252) << ' ' << arr[i].namberaccount << " - " << arr[i].money << '$' << ' ' << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << arr[i].getName() << " " << '|' << arr[i].getSurname() << " " << '|' << arr[i].getAlphabet() << ';' << endl;
+	cout << char(219) << char(221) << "		" << '|' << " age = " << arr[i].getAge() << ';';
+	cout << " |bank account " << char(252) << ' ' << arr[i].getNamberAccount() << " - " << arr[i].getMoney() << '$' << ' ' << ';' << endl;
 	cout << char(219) << char(221) << "		" << '|' << "insurance policy: "
-		<< arr[i].policy << ", series " << char(252) << ':' << ' ' << arr[i].series << " - " << arr[i].additionalseries << '|' << ' ' << endl;
+		<< arr[i].getPolicy() << ", series " << char(252) << ':' << ' ' << arr[i].getSeries() << " - " << arr[i].getAdditionalseries() << '|' << ' ' << endl;
 	for (int i = 0; i < 98; i++) {
 		cout << char(219);
 	}
@@ -357,43 +357,43 @@ void namesearch(People arr, int i) {
 
 ///
 
-int namberaccount(People arr, int size, int imputnamberaccount) {
+int namberaccount(People* arr, int size, int imputnamberaccount) {
 	int index = 0;
 	int i = 1;
 	for (i; i < size; i++)
 	{
-		if (arr[i].namberaccount == imputnamberaccount) {
+		if (arr[i].getNamberAccount() == imputnamberaccount) {
 			index = i;
 			return index;
 		}
 	}
-	if (arr[i].namberaccount != imputnamberaccount) {
+	if (arr[i].getNamberAccount() != imputnamberaccount) {
 		cout << char(219) << char(221) << "		" << "this person was not found in the database!" << endl;
 		return 0;
 	}
 }
 
-int namberinsurancepolicy(People arr, int size, int imputnamberinsurancepolicy) {
+int namberinsurancepolicy(People* arr, int size, int imputnamberinsurancepolicy) {
 	int index = 0;
 	int i = 1;
 	for (i; i < size; i++)
 	{
-		if (arr[i].policy == imputnamberinsurancepolicy) {
+		if (arr[i].getPolicy() == imputnamberinsurancepolicy) {
 			index = i;
 			return index;
 		}
 	}
-	if (arr[i].policy != imputnamberinsurancepolicy) {
+	if (arr[i].getPolicy() != imputnamberinsurancepolicy) {
 		cout << char(219) << char(221) << "		" << "this person was not found in the database!" << endl;
 		return 0;
 	}
 }
 
-int searchtelephone(People arr, int size, string telephone) {
+int searchtelephone(People* arr, int size, string telephone) {
 
 	int index = 0;
 	for (int i = 1; i < size; i++) {
-		if (arr[i].telephone == telephone) {
+		if (arr[i].getTelephone() == telephone) {
 			index = i;
 			return index;
 		}
@@ -440,23 +440,23 @@ int bankimput(People arr, int size) {
 }
 
 
-int searchname(People arr, int size, string surname) {
+int searchname(People* arr, int size, string surname) {
 
 	int index = 0;
 	for (int i = 1; i < size; i++) {
-		if (arr[i].surname == surname) {
+		if (arr[i].getSurname() == surname) {
 			index = i;
 			return index;
 		}
 	}
 }
 
-int searchsurname(People arr, int size, string name, string surname) {
+int searchsurname(People* arr, int size, string name, string surname) {
 
 	int index = 0;
 	for (int i = 1; i < size; i++)
 	{
-		if (arr[i].name == name && arr[i].surname == surname) {
+		if (arr[i].getName() == name && arr[i].getSurname() == surname) {
 			index = i;
 			return index;
 		}
@@ -464,14 +464,14 @@ int searchsurname(People arr, int size, string name, string surname) {
 	}
 }
 
-int searchpatronymic(People arr, int size, string name, string surname, string patronymic) {
+int searchpatronymic(People* arr, int size, string name, string surname, string patronymic) {
 
 	int index = 0;
 	for (int i = 1; i < size; i++)
 	{
-		if (arr[i].name == name && arr[i].surname == surname && arr[i].alphabet == patronymic) {
+		if (arr[i].getName() == name && arr[i].getSurname() == surname && arr[i].getAlphabet() == patronymic) {
 			index = i;
-			return index;
+				return index;
 		}
 
 	}
@@ -480,7 +480,7 @@ int searchpatronymic(People arr, int size, string name, string surname, string p
 
 int nameimput(People arr, int size) {
 	string namewrite;
-	string surnamewrite;
+		string surnamewrite;
 	string patronymicwrite;
 	cout << char(219) << char(221) << "		" << "search by - " << "[ surname ]| or |[ name ] and [ surname ]| or |[ name ] and [ surname ] and [ patronymic ]|. ..." << endl;
 	cout << char(219) << char(221) << "		" << "search by:  " << "[ firstname ]| or |       [ surname ]      | or |             [ patronymic ]                |     " << endl;
